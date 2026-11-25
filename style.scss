@@ -1,0 +1,169 @@
+@use "sass:math";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+$green500: hsl(158, 36%, 37%);
+$green700: hsl(158, 42%, 18%);
+$black: hsl(212, 21%, 14%);
+$grey: hsl(228, 12%, 48%);
+$cream: hsl(30, 38%, 92%);
+$white: hsl(0, 0%, 100%);
+$motserrat: "Montserrat", sans-serif;
+$fraunces: "Fraunces", serif;
+@function rem($px) {
+  @return math.div($px, 16px) * 1rem;
+}
+body {
+  background: $cream;
+}
+.container {
+  width: 100%;
+  max-width: rem(375px);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 50px rem(12.5px);
+  @media (min-width: 768px) {
+    width: 100%;
+    max-width: rem(768px);
+  }
+  @media (min-width: 1440px) {
+    width: 100%;
+    max-width: rem(1440px);
+  }
+}
+.card {
+  width: 100%;
+  max-width: rem(350px);
+  margin: 0 auto;
+  border-radius: 8px;
+  overflow: hidden;
+  @media (min-width: 768px) {
+    width: 100%;
+    max-width: rem(600px);
+    display: flex;
+  }
+  @media (min-width: 1440px) {
+    width: 100%;
+    max-width: rem(600px);
+    display: flex;
+  }
+  picture {
+    width: 100%;
+    display: block;
+    @media (min-width: 768px) {
+      width: 50%; // kartochkaning chap yarmi (300px)
+    }
+    @media (min-width: 1440px) {
+      width: 50%; // kartochkaning chap yarmi (300px)
+    }
+    img {
+      width: 100%;
+      height: rem(342px);
+      object-fit: cover;
+      display: block;
+      @media (min-width: 768px) {
+        height: 100%;
+      }
+      @media (min-width: 1440px) {
+        height: 100%;
+      }
+    }
+  }
+
+  // content qismi
+  .content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: rem(24px);
+    padding: rem(32px);
+    background: $white;
+    @media (min-width: 768px) {
+      width: 50%;
+      gap: rem(32px);
+    }
+  }
+}
+.content {
+  .title {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: rem(24px);
+    span {
+      font-size: rem(12px);
+      line-height: 1.2;
+      letter-spacing: 5px;
+      color: $grey;
+      font-family: $motserrat;
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+    h1 {
+      font-size: rem(32px);
+      line-height: 1;
+      color: $black;
+      font-family: $fraunces;
+      font-weight: 700;
+    }
+    p {
+      font-size: rem(14px);
+      font-family: $motserrat;
+      font-weight: 500;
+      color: $grey;
+      line-height: 1.6;
+    }
+  }
+  .price {
+    width: 100%;
+    display: flex;
+    gap: rem(16px);
+    justify-content: flex-start;
+    align-items: center;
+    p {
+      color: $green500;
+      font-family: $fraunces;
+      font-weight: 700;
+      font-size: rem(32px);
+      line-height: 1;
+    }
+    del {
+      color: $grey;
+      font-family: $motserrat;
+      font-weight: 500;
+      line-height: 1.2;
+      font-size: rem(13px);
+    }
+  }
+  .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: rem(16px) rem(32px);
+    gap: rem(8px);
+    border-radius: 8px;
+    background-color: $green500;
+    border-style: none;
+    transition: 1s ease;
+    cursor: pointer;
+    img {
+      width: rem(18px);
+      height: rem(18px);
+      aspect-ratio: 1;
+      color: $white;
+    }
+    span {
+      font-size: rem(14px);
+      font-family: $motserrat;
+      font-weight: 700;
+      line-height: 1.1;
+      color: $white;
+    }
+    &:hover {
+      background-color: $green700;
+    }
+  }
+}
